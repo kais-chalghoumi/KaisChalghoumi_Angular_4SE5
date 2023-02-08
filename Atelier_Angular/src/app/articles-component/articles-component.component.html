@@ -1,0 +1,21 @@
+<p>{{ titre }}</p>
+<div *ngFor="let l of listeArticles">
+    
+    
+        <fieldset style="border: dotted 1px black; border-radius: 5px;">
+        <legend>{{l.titre}}</legend>
+        <table>
+        <tr>
+            <td>Auteur</td><td>{{l.auteur}}</td>
+        </tr>
+        <tr>
+            <td>Date</td><td>{{l.date}}</td>
+        </tr>
+        <tr>
+            <td>Contenu</td><td>{{l.contenu}}</td>
+        </tr>
+        </table><br>
+    </fieldset>
+    
+    
+</div>  
