@@ -1,0 +1,19 @@
+<br>
+<br>
+<h1>Products</h1>
+<div class="row">
+    <div class="col-md-4" *ngFor="let i of listProduct,let p=index">
+        <div class="card" style="width: 18rem; text-align: center00; border-color: blue;" >
+            <img class="card-img-top" src="../assets/images.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">{{ i.title }}</h5>
+                <p class="card-text">Price: {{ i.price }}</p>
+                <p class="card-text">Quantity: {{ i.quantity }}</p>
+                <p class="card-text">Like: {{ i.like }}</p>          
+                <button class="btn btn-primary" (click)="buy(p)" [disabled]="i.quantity == 0">Buy</button>
+                <button class="btn btn-primary" (click)="like(p)" style="margin-left: 10px;">Like</button>
+                <button class="btn btn-primary" style="margin-left: 10px;" [routerLink]="['/product',i.id]">Details</button> 
+            </div>
+        </div>
+    </div>
+</div>

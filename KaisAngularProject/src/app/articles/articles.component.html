@@ -1,0 +1,27 @@
+<h1>{{ titre }}</h1>
+<br>
+<h4 style="display: inline;">nombre total des articles affichés : </h4>
+<input [(ngModel)]="listeArticles.length" />
+<br><br>
+<div class="col-md-4" *ngFor="let i of listeArticles">
+    <div *ngIf="i.categorie!='Travail'">
+        <div *ngIf="i.categorie=='Education'">
+            <fieldset style="border: solid ;color: blue;" >
+                <legend>{{ i.titre }}</legend>
+                Auteur : {{ i.auteur }} <br>
+                Contenu : {{ i.contenu }}<br>
+                Date : {{ i.date }}<br>
+                categorie : {{ i.categorie }}
+            </fieldset><br>
+        </div>
+        <div *ngIf="i.categorie!='Education'">
+            <fieldset style="border: solid ;" >
+                <legend>{{ i.titre }}</legend>
+                Auteur : {{ i.auteur }} <br>
+                Contenu : {{ i.contenu }}<br>
+                Date : {{ i.date }}<br>
+                categorie : {{ i.categorie }}
+            </fieldset><br>
+        </div>
+    </div>
+</div>

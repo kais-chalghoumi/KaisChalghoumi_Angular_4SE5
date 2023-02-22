@@ -1,0 +1,37 @@
+
+  <br><br>
+
+  <form #f="ngForm">
+  <div class="form-group">
+    <label>Id</label>
+    <input type="number" class="form-control" name="id" placeholder="Enter id"  [(ngModel)]="product.id" required #id="ngModel">  
+    <div class="alert alert-danger" *ngIf="id.invalid && id.touched"> Id invalid !!!</div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" name="Title" placeholder="Enter Title" [(ngModel)]="product.title" required minlength="3" #Title="ngModel">
+  <div class="alert alert-danger" *ngIf="Title.errors?.['required'] && Title.touched"> Title required !!!</div>
+  <div class="alert alert-danger" *ngIf="Title.errors?.['minlength'] && Title.touched"> Title invalid !!!</div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label>Quantity</label>
+    <input type="number" class="form-control" name="Quantity" placeholder="Enter Quantity" [(ngModel)]="product.quantity" required min="100" max="999" #Quantity="ngModel" >   
+  <div class="alert alert-danger" *ngIf="Quantity.errors?.['required'] && Quantity.touched"> Quantity required !!!</div>
+  <div class="alert alert-danger" *ngIf="Quantity.errors?.['min'] && Quantity.touched"> Quantity under Min !!!</div>
+  <div class="alert alert-danger" *ngIf="Quantity.errors?.['max'] && Quantity.touched"> Quantity over Max !!!</div>
+  </div>
+  <br>
+  <div class="form-group">
+    <label>Price</label>
+    <input type="text" class="form-control" name="Price" placeholder="Enter Price" [(ngModel)]="product.price">
+  </div>
+  <br>
+  <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+</form>
+
+{{ product.id }}
+{{ product.title }}
+{{ product.quantity }}
+{{ product.price }}

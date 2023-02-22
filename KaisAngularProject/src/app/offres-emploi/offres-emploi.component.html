@@ -1,0 +1,26 @@
+<br>
+<br>
+<h1>Liste des Offres Emploi</h1>
+<form>
+<br>
+<br><br>
+</form>
+<div class="row">
+    <div class="col-md-4" *ngFor="let i of listOffresEmploi,let a=index">
+        <div class="card" style="width: 18rem; text-align: center00; border-color: blue;" >
+            <img class="card-img-top" src="../assets/download.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Titre: {{ i.titre }}</h5>
+                <p class="card-text">Reference: {{ i.reference }}</p>
+                <p class="card-text">Entreprise: {{ i.entreprise }}</p>
+                <p class="card-text">Etat: {{ i.etat }}</p>          
+                <button class="btn btn-primary" [disabled]="i.etat == false">postuler</button>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<p>Nombre d'offres non cloturés: {{ nbre }}</p>
+<button class="btn btn-primary" (click)="Bilan()">Bilan</button>
+
+<br><br>
