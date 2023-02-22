@@ -1,0 +1,60 @@
+
+<br>
+<br><br>
+<form #f="ngForm">
+    <div  class="col-md-6" >
+        <fieldset style="border: solid ;" >
+            <legend>Informations generales</legend>
+            <div class="col-md-10" class="form-group">
+                <table>
+                    <tr>
+                        <td>Nom</td>
+                        <td><input type="text" class="form-control" name="nom" [(ngModel)]="payement.nom" required #nom="ngModel"></td>
+                        <td><p class="alert alert-danger" *ngIf="nom.invalid && nom.touched"> Id required !!!</p></td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td><input type="text" class="form-control" name="email" required [(ngModel)]="payement.email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{3,3}$"></td>
+                        <td><p class="alert alert-danger" *ngIf="email.errors?.['required'] && email.touched"> email required !!!</p></td>
+                        <td><p class="alert alert-danger" *ngIf="email.errors?.['pattern'] && email.touched"> email invalid !!!</p></td>
+                    </tr>
+                    <tr><br></tr>
+                    <tr>
+                        <td colspan="2">
+                            <fieldset style="border: solid ;" >
+                            <legend>Informations de paiyement</legend>
+                            <table>
+                                <tr>
+                                    <td>Type de carte</td>
+                                    <td><input type="text" class="form-control" name="type" required [(ngModel)]="payement.type" #type="ngModel"></td>
+                                    <td><p class="alert alert-danger" *ngIf="type.invalid && type.touched"> type required !!!</p></td>
+                                </tr>
+                                <tr>
+                                    <td>Numero de carte</td>
+                                    <td><input type="number" class="form-control" name="numero" required min="1000000000000000" max="9999999999999999" [(ngModel)]="payement.numero" #numero="ngModel"></td>
+                                    <td><p class="alert alert-danger" *ngIf="numero.errors?.['required'] && numero.touched"> numero required !!!</p></td>
+                                    <td><p class="alert alert-danger" *ngIf="numero.errors?.['min'] && numero.touched"> numero invalid !!!</p></td>
+                                    <td><p class="alert alert-danger" *ngIf="numero.errors?.['max'] && numero.touched"> numero invalid !!!</p></td>
+                                </tr>
+                                <tr>
+                                    <td>Date d'expiration</td>
+                                    <td><input type="text" class="form-control" name="date" required [(ngModel)]="payement.date" #date="ngModel"></td>
+                                    <td><p class="alert alert-danger" *ngIf="date.invalid && date.touched"> date required !!!</p></td>
+                                </tr>
+                                <tr>
+                                    <td>Code</td>
+                                    <td><input type="text" class="form-control" name="code"  [hidden]="f.invalid" [(ngModel)]="payement.code" #code="ngModel"></td>
+                                    <td><p class="alert alert-danger" *ngIf="code.invalid && code.touched"> code required !!!</p></td>
+                                </tr>
+                            </table>
+                            </fieldset><br>
+                        </td>
+                    </tr>
+                    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Ajouter</button>
+                    <tr><br></tr>
+                </table>
+            </div>
+            
+        </fieldset>
+    </div>
+</form>

@@ -10,6 +10,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { OffresEmploiComponent } from './offres-emploi/offres-emploi.component';
 import { ProductsComponent } from './products/products.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
     OffresEmploiComponent,
     ProductsComponent,
     NavBarComponent,
+    TemplateDrivenFormComponent,
   ],
   imports: [
     BrowserModule,
