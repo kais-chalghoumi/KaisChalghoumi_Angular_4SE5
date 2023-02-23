@@ -28,7 +28,7 @@
     <input type="text" class="form-control" name="Price" placeholder="Enter Price" [(ngModel)]="product.price">
   </div>
   <br>
-  <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Submit</button>
+  <button type="submit" class="btn btn-primary" [disabled]="f.invalid" (click)="ajouter()">Submit</button>
 </form>
 
 {{ product.id }}
