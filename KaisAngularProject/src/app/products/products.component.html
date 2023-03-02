@@ -4,8 +4,13 @@
 <br><br>
 <h2> Nombre de produits non disponibles : {{nombre}}</h2>
 <br><br>
+<h2> Price Filter :</h2>
+<input type="number" name="price" [(ngModel)]="priceMax">
+<br><br>
 <div class="row">
     <div class="col-md-4" *ngFor="let prod of listProduct,let p=index">
-        <app-product-item [product]="prod" (incrementEvent)="like($event)" (decrementEvent)="buy($event)"></app-product-item>
+        <div *ngIf="prod.price < priceMax || priceMax == null">
+            <app-product-item [product]="prod" (incrementEvent)="like($event)" (decrementEvent)="buy($event)"></app-product-item>
+        </div>        
     </div>
 </div>

@@ -12,6 +12,7 @@ export class ProductsComponent implements OnInit {
 
   nombre! : number;
   listProduct! : Product[];
+  priceMax! : number;
   constructor(private productService : ProductService,private calculeService : CalculService) { }
 
   ngOnInit(): void {
