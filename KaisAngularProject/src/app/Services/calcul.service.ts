@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root' // yaani injectable f projet lkol mch ken composant wehed kahaw
 })
 export class CalculService {
 
