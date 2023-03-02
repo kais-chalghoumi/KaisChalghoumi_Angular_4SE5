@@ -19,12 +19,14 @@ export class ProductsComponent implements OnInit {
     this.nombre = this.calculeService.getNumberOf(this.listProduct, 'quantity' , 0);
   }
 
-  buy(p : number){
-    this.listProduct[p].quantity--;
+  buy(product:Product){
+    let i = this.listProduct.indexOf(product)
+    this.listProduct[i].quantity--;
   }
 
-  like(p:number){
-    this.listProduct[p].like++;
+  like(product:Product){
+    let i = this.listProduct.indexOf(product)
+    this.listProduct[i].like++;
   }
 
   Calcule(){

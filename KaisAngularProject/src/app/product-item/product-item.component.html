@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem; text-align: center00; border-color: blue;" >
+    <img class="card-img-top" src="../assets/images.png" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">Price: {{ product.price }}</p>
+        <p class="card-text">Quantity: {{ product.quantity }}</p>
+        <p class="card-text">Like: {{ product.like }}</p>          
+        <button class="btn btn-primary" (click)="sentNotifBuy()" [disabled]="product.quantity == 0">Buy</button>
+        <button class="btn btn-primary" (click)="sentNotif()" style="margin-left: 10px;">Like</button>
+        <button class="btn btn-primary" style="margin-left: 10px;" [routerLink]="['/product',product.id]">Details</button> 
+    </div>
+</div>
