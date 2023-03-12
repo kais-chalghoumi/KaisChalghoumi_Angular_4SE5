@@ -11,6 +11,7 @@ export class ProductItemComponent implements OnInit {
   @Input() product! : Product;
   @Output() incrementEvent = new EventEmitter<Product>();
   @Output() decrementEvent = new EventEmitter<Product>();
+  @Output() deleteEvent = new EventEmitter<number>();
   constructor() { }
 
   ngOnInit(): void {
@@ -23,5 +24,9 @@ export class ProductItemComponent implements OnInit {
 
   sentNotifBuy(){
     this.decrementEvent.emit(this.product);
+  }
+
+  deleteNotif(){
+    this.deleteEvent.emit(this.product.id);
   }
 }

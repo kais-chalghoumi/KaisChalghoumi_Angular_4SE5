@@ -12,6 +12,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { TemplateDrivenFormComponent } from './template-driven-form/template-driven-form.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductItemComponent } from './product-item/product-item.component';
+import { HttpClientModule } from '@angular/common/http' // !!!
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ProductItemComponent } from './product-item/product-item.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule   // questions de cours
   ],
   providers: [],
   bootstrap: [AppComponent]

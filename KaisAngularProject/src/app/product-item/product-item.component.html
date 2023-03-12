@@ -8,5 +8,7 @@
         <button class="btn btn-primary" (click)="sentNotifBuy()" [disabled]="product.quantity == 0">Buy</button>
         <button class="btn btn-primary" (click)="sentNotif()" style="margin-left: 10px;">Like</button>
         <button class="btn btn-primary" style="margin-left: 10px;" [routerLink]="['/product',product.id]">Details</button> 
+        <br><br>
+        <button class="btn btn-primary" (click)="deleteNotif()" style="margin-left: 10px;">Delete</button>
     </div>
 </div>

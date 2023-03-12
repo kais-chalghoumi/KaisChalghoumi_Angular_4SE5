@@ -10,7 +10,7 @@
 <div class="row">
     <div class="col-md-4" *ngFor="let prod of listProduct,let p=index">
         <div *ngIf="prod.price < priceMax || priceMax == null">
-            <app-product-item [product]="prod" (incrementEvent)="like($event)" (decrementEvent)="buy($event)"></app-product-item>
+            <app-product-item [product]="prod" (incrementEvent)="like($event)" (decrementEvent)="buy($event)" (deleteEvent)="delete($event)"></app-product-item>
         </div>        
     </div>
 </div>

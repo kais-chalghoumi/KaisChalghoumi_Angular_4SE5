@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵComponentFactory } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from '../core/model/Product';
 import { CalculService } from '../Services/calcul.service';
+import { ConsumerService } from '../Services/consumer.service';
 import { ProductService } from '../Services/product.service';
 
 @Component({
@@ -13,20 +15,23 @@ export class ProductsComponent implements OnInit {
   nombre! : number;
   listProduct! : Product[];
   priceMax! : number;
-  constructor(private productService : ProductService,private calculeService : CalculService) { }
+  constructor(private productService : ProductService, private calculeService : CalculService, private consumer : ConsumerService, private route : Router) { }
 
   ngOnInit(): void {
-    this.listProduct=this.productService.listProduct;
-    this.nombre = this.calculeService.getNumberOf(this.listProduct, 'quantity' , 0);
+  //  this.listProduct=this.productService.listProduct;
+  //  this.nombre = this.calculeService.getNumberOf(this.listProduct, 'quantity' , 0);
+      this.consumer.getProducts().subscribe({
+        next: (data)=>this.listProduct=data,
+      });
   }
 
   buy(product:Product){
-    let i = this.listProduct.indexOf(product)
+    let i = this.listProduct.indexOf(product);
     this.listProduct[i].quantity--;
   }
 
   like(product:Product){
-    let i = this.listProduct.indexOf(product)
+    let i = this.listProduct.indexOf(product);
     this.listProduct[i].like++;
   }
 
@@ -34,4 +39,9 @@ export class ProductsComponent implements OnInit {
     let nombre = 0 ;
   }
 
+  delete(id:number){
+    this.consumer.deleteProduct(id).subscribe({
+    next: ()=>this.ngOnInit(),
+    });
+  }
 }
